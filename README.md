@@ -1,8 +1,18 @@
 # data_visualization-challenge
 Homework challenge for module 5
 
+## Notes and Analysis
+#### Trouble-shooting:
+The key areas that I ran into problems were the for-loop to identify outliers and the linear regression model. In an earlier version of my homework I had not realized the for-loop was necessary from the instructions, and calculated my answers individually by the drug regimen type. After seeing trouble-shooting in the office hours before class I saw that another student was running his for-loop. At this point I went back in and redid my code to capture a for-loop to calculate the outliers and bounds. For the linear regression, I kept getting an error and Ryan assisted me because I had missed the 'st.' before 'linregress' and it was throwing me completelly off. 
+The last and more interesting error i sthat in my bar graphs, they came out identical in appearance, but associated the bars with incorrect drug names on the pyplot. When I ran the underlying data to see if it was an issue with the association of timepoint counts to drug regimen - that was not the issue. I tried a few trouble-shooting but they did not work. So I ended up renaming the tick-locations in the pyplot to properly associate the bars to their drug regimens. I printed the timepoint counts for the underlying data (per_drug_mouse_count) as well so you can see that they are matched appropriately. 
+#### Analyzing Results
+Starting by noting that this data presents itself as relatively clean and unbiased after removing the duplicate mouse in the first few steps. I noted this by looking at the diversity of mouse gender (not statistically different) and the fact that there was a placebo drug regimen included in the study; with the same average amount of timepoints as other drug regimens. 
+Another example that helped ensure the data was reading properly was the linear regression - it is good to see that with the size of the mouse, the tumor size was moving parallel in size as well. It would be a red flag to me if we saw tumor sizes increasing as mouse size decreased. Overall, I think focusing on the sample drugs (Capomulin, Ramicane, Infubinol, Ceftamin) gives the viewer a goos sampling of the results. Capomulin and Ramicane were two pretty successful studies in my opinion. They both had larger sample sizes (timepoints observed) and overall lower standard deviation and standard error than the rest of the group. It is also compelling that neither of these drug regimens had outliers in the data. In fact, we only observed one outlier of the four analyzed drug regimens. 
+For our example mouse, x401, we even saw a great reduction in tumor size. This was a mouse that was studied for more than 40 timepoints, which indicates we got a good amount of analysis to review. It appears that this mouse saw some slight increase in tumor volume after the 40th timepoint. I would like to see this study proceed past 45 days and analyze the longer-term effects of the drug regimens. 
+
 ### Resources:
 Keeping duplicates for multiple columns: https://stackoverflow.com/questions/46640945/grouping-by-multiple-columns-to-find-duplicate-rows-pandas
 Utilizing the 'isin' function: https://saturncloud.io/blog/how-to-check-if-pandas-column-has-value-from-list-of-strings/#:~:text=One%20simple%20and%20efficient%20way,contained%20in%20the%20given%20list.
 For fig size changes: https://stackoverflow.com/questions/29568110/how-to-use-ax-with-pandas-and-matplotlib
 Generating a sample: https://www.geeksforgeeks.org/how-to-randomly-select-rows-from-pandas-dataframe/
+Using Ryan MacFarlane as a resource - he helped me trouble shoot my linear regression when it was having errors as well as providing assistance trouble-shooting the for-loop for outliers. 
